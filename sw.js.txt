@@ -1,0 +1,32 @@
+const CACHE_NAME = 'pediburn-cache-v1';
+const urlsToCache = [
+  './',
+  './index.html',
+  './manifest.json',
+  './icon-192.png',
+  './icon-512.png'
+];
+
+// Instalación: Guarda los archivos en la memoria caché del teléfono
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(cache => {
+        return cache.addAll(urlsToCache);
+      })
+  );
+});
+
+// Intercepción: Cuando la app pide un archivo, busca primero en el caché (Offline)
+self.addEventListener('fetch', event => {
+  event.respondWith(
+    caches.match(event.request)
+      .then(response => {
+        // Devuelve la versión guardada si existe, o la descarga de internet si no
+        return response || fetch(event.request);
+      })
+  );
+});
+```
+
+
