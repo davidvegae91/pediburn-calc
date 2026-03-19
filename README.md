@@ -25,6 +25,3 @@ PediBurn Calc es una herramienta clínica de apoyo a la decisión diseñada para
 La aplicación es puramente del lado del cliente (Client-side) y no requiere ejecución de código en servidor.
 
 ### Uso Local
-1. Clona este repositorio: 
-   ```bash
-   git clone [https://github.com/TU_USUARIO/pediburn-calc.git](https://github.com/TU_USUARIO/pediburn-calc.git)
